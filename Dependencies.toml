@@ -268,12 +268,30 @@ modules = [
 ]
 
 [[package]]
+org = "ballerinax"
+name = "microsoft.teams"
+version = "2.2.0"
+dependencies = [
+	{org = "ballerina", name = "http"},
+	{org = "ballerina", name = "io"},
+	{org = "ballerina", name = "jballerina.java"},
+	{org = "ballerina", name = "lang.runtime"},
+	{org = "ballerina", name = "log"},
+	{org = "ballerina", name = "os"},
+	{org = "ballerina", name = "regex"}
+]
+modules = [
+	{org = "ballerinax", packageName = "microsoft.teams", moduleName = "microsoft.teams"}
+]
+
+[[package]]
 org = "contenlab"
 name = "msft"
 version = "0.1.0"
 dependencies = [
 	{org = "ballerina", name = "http"},
-	{org = "ballerinai", name = "observe"}
+	{org = "ballerinai", name = "observe"},
+	{org = "ballerinax", name = "microsoft.teams"}
 ]
 modules = [
 	{org = "contenlab", packageName = "msft", moduleName = "msft"}
