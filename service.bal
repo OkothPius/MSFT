@@ -10,7 +10,7 @@ service / on new http:Listener(9090) {
     resource function get api() returns json|error {
         // Send a response back to the caller.
 
-        teams:Client teamsEndpoint = check new ({auth: {token: ""}});
+        teams:Client teamsEndpoint = check new ({auth: {refreshUrl: "", refreshToken: "", clientId: "", clientSecret: ""}});
         string createTeamResponse = check teamsEndpoint->createTeam({displayName: "School Meeting", description: "Discussing current issues", classification: "", specialization: "educationClass", visibility: "public", isArchived: false});
         return createTeamResponse;
     }
