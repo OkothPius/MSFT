@@ -10,8 +10,8 @@ service / on new http:Listener(9090) {
     resource function get api() returns json|error {
         // Send a response back to the caller.
 
-        teams:Client teamsEndpoint = check new ({auth: {refreshUrl: "", refreshToken: "", clientId: "", clientSecret: ""}});
+        teams:Client teamsEndpoint = check new ({auth: {refreshUrl: "https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize", refreshToken: "", clientId: "ee74c546-0426-423b-9e12-c57f64c26393", clientSecret: "TCY8Q~JriqIOhcVCcTyVGjE8Augg-4feolrpZbZg"}});
         string createTeamResponse = check teamsEndpoint->createTeam({displayName: "School Meeting", description: "Discussing current issues", classification: "", specialization: "educationClass", visibility: "public", isArchived: false});
-        return createTeamResponse;
+        return createTeamResponse.toJson();
     }
 }
